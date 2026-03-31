@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description or 'Software engineer. Building things with care.' }}">
+  <meta property="og:title" content="{{ title or 'Kol Mikaelson' }}">
+  <meta property="og:description" content="{{ description or 'Software engineer. Building things with care.' }}">
+  <meta property="og:type" content="website">
+  <title>{% if title %}{{ title }} — {% endif %}Kol Mikaelson</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="/" class="nav__name">kol mikaelson</a>
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="/#about">about</a>
+        <a href="/#projects">projects</a>
+        <a href="/blog/">writing</a>
+        <a href="/#contact">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer id="contact" class="footer">
+    <div class="container">
+      <p class="footer__cta fade-up">Let's build something.</p>
+      <a href="mailto:hello@kolmikaelson.dev" class="footer__email fade-up">hello@kolmikaelson.dev</a>
+      <div class="footer__links fade-up">
+        <a href="https://github.com/kol-mikaelson" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/kol-mikaelson" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Résumé</a>
+      </div>
+      <p class="footer__copy">© 2026 Kol Mikaelson</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

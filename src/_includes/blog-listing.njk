@@ -1,0 +1,43 @@
+---
+layout: base.njk
+---
+<div class="blog-hero">
+  <div class="container">
+    <h1 class="blog-hero__title fade-up">
+      Writing<br><em>& thinking</em>
+    </h1>
+    <p class="blog-hero__sub fade-up">Notes on engineering, systems, and the craft of building software.</p>
+  </div>
+</div>
+
+<div class="blog-list">
+  <div class="container">
+    {% if collections.posts.length %}
+    <div class="blog-list__items">
+      {% for post in collections.posts %}
+      <a href="{{ post.url }}" class="blog-post-item">
+        <div class="blog-post-item__date">{{ post.date | dateDisplay }}</div>
+        <h2 class="blog-post-item__title">{{ post.data.title }}</h2>
+        {% if post.data.description %}
+        <p class="blog-post-item__desc">{{ post.data.description }}</p>
+        {% endif %}
+        <div class="blog-post-item__meta">
+          <span class="blog-post-item__read-time">{{ post.templateContent | readingTime }}</span>
+          {% if post.data.tags %}
+          <div class="blog-post-item__tags">
+            {% for tag in post.data.tags %}
+            {% if tag != "posts" %}
+            <span>{{ tag }}</span>
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p style="color: var(--secondary); padding: 3rem 0;">No posts yet — check back soon.</p>
+    {% endif %}
+  </div>
+</div>

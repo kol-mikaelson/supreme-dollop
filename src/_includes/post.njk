@@ -1,0 +1,33 @@
+---
+layout: base.njk
+---
+<article>
+  <div class="post-header">
+    <div class="container">
+      <a href="/blog/" class="post-back">writing</a>
+      <div class="post-header__date">{{ page.date | dateDisplay }}</div>
+      <h1 class="post-header__title">{{ title }}</h1>
+      {% if description %}
+      <p class="post-header__desc">{{ description }}</p>
+      {% endif %}
+      <div class="post-header__meta">
+        <span class="post-header__read-time">{{ content | readingTime }}</span>
+        {% if tags %}
+        <div class="post-header__tags">
+          {% for tag in tags %}
+          {% if tag != "posts" %}
+          <span>{{ tag }}</span>
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>

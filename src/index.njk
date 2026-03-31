@@ -1,0 +1,180 @@
+---
+layout: base.njk
+title: ""
+description: "Software engineer building well-crafted systems and thoughtful interfaces."
+---
+
+{# ── HERO ── #}
+<section class="hero">
+  <div class="container">
+    <p class="hero__eyebrow">software engineer</p>
+    <h1 class="hero__name">
+      Kol<br>
+      <em>Mikaelson</em>
+    </h1>
+    <p class="hero__tagline">
+      Building things with care — systems that last,<br>
+      interfaces that breathe.
+    </p>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <span>scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+{# ── ABOUT ── #}
+<section id="about">
+  <div class="container">
+    <div class="two-col fade-up">
+      <div class="section-label">about</div>
+      <div class="about__content">
+        <p class="about__bio">
+          I'm a software engineer drawn to the intersection of well-crafted systems
+          and thoughtful user experience. I care about the quality of the substrate —
+          the abstractions that let teams move fast without accumulating chaos.
+        </p>
+        <p class="about__bio">
+          Currently focused on distributed systems and developer tooling.
+          I believe the best code is the code that doesn't need explaining.
+        </p>
+        <ul class="about__skills">
+          <li>TypeScript</li>
+          <li>Node.js</li>
+          <li>Go</li>
+          <li>Rust</li>
+          <li>PostgreSQL</li>
+          <li>Systems design</li>
+          <li>Developer tooling</li>
+          <li>API design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ── PROJECTS ── #}
+<section id="projects">
+  <div class="container">
+    <div class="two-col">
+      <div class="section-label">work</div>
+      <div>
+        <ol class="projects__list">
+
+          <li class="project">
+            <a href="https://github.com/kol-mikaelson" class="project__link" target="_blank" rel="noopener noreferrer">
+              <div class="project__meta">
+                <span class="project__number">01</span>
+                <span class="project__year">2025</span>
+              </div>
+              <h2 class="project__name">
+                Axiom
+                <span class="project__arrow" aria-hidden="true">↗</span>
+              </h2>
+              <p class="project__desc">
+                A lightweight runtime assertion library for TypeScript — zero dependencies,
+                full type inference, designed for the places where you need certainty.
+              </p>
+              <ul class="project__tags">
+                <li>TypeScript</li>
+                <li>Open Source</li>
+              </ul>
+            </a>
+          </li>
+
+          <li class="project">
+            <a href="https://github.com/kol-mikaelson" class="project__link" target="_blank" rel="noopener noreferrer">
+              <div class="project__meta">
+                <span class="project__number">02</span>
+                <span class="project__year">2025</span>
+              </div>
+              <h2 class="project__name">
+                Relay
+                <span class="project__arrow" aria-hidden="true">↗</span>
+              </h2>
+              <p class="project__desc">
+                An event-driven job queue backed by PostgreSQL — durable, observable,
+                and boring in the best way. Replaces Redis for teams that already have Postgres.
+              </p>
+              <ul class="project__tags">
+                <li>Go</li>
+                <li>PostgreSQL</li>
+                <li>Distributed systems</li>
+              </ul>
+            </a>
+          </li>
+
+          <li class="project">
+            <a href="https://github.com/kol-mikaelson" class="project__link" target="_blank" rel="noopener noreferrer">
+              <div class="project__meta">
+                <span class="project__number">03</span>
+                <span class="project__year">2024</span>
+              </div>
+              <h2 class="project__name">
+                Cartographer
+                <span class="project__arrow" aria-hidden="true">↗</span>
+              </h2>
+              <p class="project__desc">
+                A CLI tool that generates dependency graphs from TypeScript codebases —
+                visualise what actually imports what before you refactor.
+              </p>
+              <ul class="project__tags">
+                <li>Rust</li>
+                <li>WASM</li>
+                <li>CLI</li>
+              </ul>
+            </a>
+          </li>
+
+          <li class="project">
+            <a href="https://github.com/kol-mikaelson" class="project__link" target="_blank" rel="noopener noreferrer">
+              <div class="project__meta">
+                <span class="project__number">04</span>
+                <span class="project__year">2024</span>
+              </div>
+              <h2 class="project__name">
+                Folio
+                <span class="project__arrow" aria-hidden="true">↗</span>
+              </h2>
+              <p class="project__desc">
+                This site. A minimal portfolio and blog built with 11ty —
+                no JS framework, no build complexity, just craft.
+              </p>
+              <ul class="project__tags">
+                <li>11ty</li>
+                <li>CSS</li>
+                <li>Vanilla JS</li>
+              </ul>
+            </a>
+          </li>
+
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ── WRITING TEASER ── #}
+{% if collections.posts.length %}
+<section id="writing">
+  <div class="container">
+    <div class="two-col fade-up">
+      <div class="section-label">writing</div>
+      <div>
+        <div class="writing__list">
+          {% for post in collections.posts %}{% if loop.index <= 3 %}
+          <a href="{{ post.url }}" class="writing-item">
+            <div class="writing-item__title">{{ post.data.title }}</div>
+            <div class="writing-item__meta">
+              <span>{{ post.date | dateDisplay }}</span>
+              <span>{{ post.templateContent | readingTime }}</span>
+            </div>
+          </a>
+          {% endif %}{% endfor %}
+        </div>
+        <a href="/blog/" class="writing__more">all posts →</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

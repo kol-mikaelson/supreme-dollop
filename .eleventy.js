@@ -1,0 +1,32 @@
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/js");
+
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/posts/*.md").reverse();
+  });
+
+  // Reading time filter
+  eleventyConfig.addFilter("readingTime", function(content) {
+    const words = content.split(/\s+/).length;
+    const minutes = Math.ceil(words / 200);
+    return `${minutes} min read`;
+  });
+
+  // Date formatting filter
+  eleventyConfig.addFilter("dateDisplay", function(date) {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+  });
+
+  return {
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_includes"
+    }
+  };
+};
