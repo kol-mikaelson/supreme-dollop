@@ -11,14 +11,6 @@
     onScroll(); // run once on load
   }
 
-  /* ── Hero scroll hint: fades out after scrolling ── */
-  const scrollHint = document.querySelector('.hero__scroll');
-  if (scrollHint) {
-    window.addEventListener('scroll', () => {
-      scrollHint.style.opacity = window.scrollY > 80 ? '0' : '1';
-    }, { passive: true });
-  }
-
   /* ── IntersectionObserver: fade-up sections & project items ── */
   const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
